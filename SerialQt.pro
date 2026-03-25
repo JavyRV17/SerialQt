@@ -12,11 +12,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    serialmanager.cpp
+    serialmanager.cpp \
+    serialstatuswidget.cpp
 
 HEADERS += \
     mainwindow.h \
-    serialmanager.h
+    serialmanager.h \
+    serialstatuswidget.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

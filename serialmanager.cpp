@@ -16,11 +16,6 @@ SerialManager::SerialManager(QObject *parent) : QObject(parent)
     connect(serialDeviceReseaarch, &QTimer::timeout, this, &SerialManager::startSerialConnection);
 }
 
-SerialManager::~SerialManager()
-{
-
-}
-
 QByteArray SerialManager::rxMessage()
 {
     return bufferText;
@@ -43,5 +38,10 @@ void SerialManager::startSerialConnection()
         serialDevice->open(QIODevice::ReadWrite);
         serialDeviceReseaarch->start();
     }
+}
+
+SerialManager::~SerialManager()
+{
+
 }
 

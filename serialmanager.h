@@ -26,8 +26,6 @@ public slots:
 
 signals:
     void messageReceived(QString);
-
-
 };
 
 #endif // SERIALMANAGER_H
