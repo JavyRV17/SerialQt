@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include <QLabel>
-#include "serialmanager.h"
-#include "serialstatuswidget.h"
 #include <QWidget>
 #include <QVBoxLayout>
 
@@ -10,25 +8,39 @@ MainWindow::MainWindow(QWidget *parent)
 {
     this->setGeometry(50, 50, 450, 300);
 
-    QWidget *central = new QWidget(this);
-    QVBoxLayout *mainlayout = new QVBoxLayout(this);
+    startUI();
+    startSerialComm();
+    startQtConnections();
 
-    SerialStatusWidget *statusWidget = new SerialStatusWidget(this);
+}
+
+void MainWindow::startUI()
+{
+    central = new QWidget(this);
+    mainlayout = new QVBoxLayout(this);
+
+    statusWidget = new SerialStatusWidget(this);
     mainlayout->addWidget(statusWidget);
     mainlayout->setAlignment(Qt::AlignLeft);
 
     central->setLayout(mainlayout);
     setCentralWidget(central);
+}
 
-    SerialManager *arduino1 = new SerialManager(this);
+void MainWindow::startSerialComm()
+{
+    arduino1 = new SerialManager("COM4", 9600, this);
+}
 
-    //Connections
+void MainWindow::startQtConnections()
+{
     connect(arduino1, &SerialManager::messageReceived, statusWidget, &SerialStatusWidget::setLabelSerialText);
 }
 
 MainWindow::~MainWindow()
 {
 }
+
 
 
 

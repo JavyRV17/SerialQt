@@ -10,14 +10,17 @@ class SerialManager : public QObject
 {
     Q_OBJECT
 public:
-    SerialManager(QObject *parent = nullptr);
+
+    SerialManager(const QString & _usbPortName, const int baudRate, QObject *parent = nullptr);
     ~SerialManager();
     QByteArray rxMessage();
+    void setUsbPortName(const QString &);
 
 private:
     QSerialPort *serialDevice;
     QByteArray bufferText;
     QTimer *serialDeviceReseaarch;
+    QString *usbPortName;
 
 //Public slots, since other classes will connect these
 public slots:
