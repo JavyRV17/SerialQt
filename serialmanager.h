@@ -19,8 +19,12 @@ public:
 private:
     QSerialPort *serialDevice;
     QByteArray bufferText;
+
     QTimer *serialDeviceReseaarch;
+
+
     QString *usbPortName;
+    bool state;
 
 //Public slots, since other classes will connect these
 public slots:
@@ -29,6 +33,7 @@ public slots:
 
 signals:
     void messageReceived(QString);
+    void arduinoStateConnectionChanged(bool);
 };
 
 #endif // SERIALMANAGER_H

@@ -6,16 +6,14 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    this->setGeometry(50, 50, 450, 300);
-
     startUI();
     startSerialComm();
     startQtConnections();
-
 }
 
 void MainWindow::startUI()
 {
+    this->setGeometry(50, 50, 450, 300);
     central = new QWidget(this);
     mainlayout = new QVBoxLayout(this);
 
@@ -35,6 +33,7 @@ void MainWindow::startSerialComm()
 void MainWindow::startQtConnections()
 {
     connect(arduino1, &SerialManager::messageReceived, statusWidget, &SerialStatusWidget::setLabelSerialText);
+    connect(arduino1, &SerialManager::arduinoStateConnectionChanged, statusWidget, &SerialStatusWidget::setStatusIndicator);
 }
 
 MainWindow::~MainWindow()

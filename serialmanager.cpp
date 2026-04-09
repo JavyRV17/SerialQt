@@ -46,10 +46,12 @@ void SerialManager::startSerialConnection()
     if(serialDevice->open(QIODevice::ReadWrite)) {
         qDebug() << *usbPortName << "ready to transfer\n";
         serialDeviceReseaarch->stop();
+        emit arduinoStateConnectionChanged(true);
     } else {
         qDebug() << "Trying to connect ..." << Qt::endl;
         serialDevice->open(QIODevice::ReadWrite);
         serialDeviceReseaarch->start();
+        emit arduinoStateConnectionChanged(false);
     }
 }
 

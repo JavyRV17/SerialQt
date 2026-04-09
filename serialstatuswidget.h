@@ -13,11 +13,14 @@ public:
     explicit SerialStatusWidget(QWidget *parent = nullptr);
     ~SerialStatusWidget();
 
+public slots:
     void setLabelSerialText(const QString &text);
+    void setStatusIndicator(bool);
 
 private:
     QLabel *labelSerialText;
     QFormLayout *serialTextLayout;
+    QLabel *statusIndicator;
 };
 
 #endif // SERIALSTATUSWIDGET_H
