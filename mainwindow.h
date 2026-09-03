@@ -7,6 +7,8 @@
 
 #include "serialstatuswidget.h"
 #include "serialmanager.h"
+#include "canparser.h"
+#include "candecoder.h"
 
 class MainWindow : public QMainWindow
 {
@@ -23,6 +25,8 @@ private:
 
     //Comm
     SerialManager *arduino1;
+    CanParser *canMessage;
+    CanDecoder *MessageDecoded;
 
     //Widgets
     SerialStatusWidget *statusWidget;

@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QFormLayout>
 
+#include "canDataTypes.h"
+
 class SerialStatusWidget : public QWidget
 {
     Q_OBJECT
@@ -14,13 +16,15 @@ public:
     ~SerialStatusWidget();
 
 public slots:
-    void setLabelSerialText(const QString &text);
+    void setLabelSerialText(const QByteArray &text);
     void setStatusIndicator(bool);
+    void setEngineStatusCanData(const EngineData &payload);
 
 private:
     QLabel *labelSerialText;
     QFormLayout *serialTextLayout;
     QLabel *statusIndicator;
+    QLabel *engineStatusCanData;
 };
 
 #endif // SERIALSTATUSWIDGET_H

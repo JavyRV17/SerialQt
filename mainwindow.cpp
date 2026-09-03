@@ -27,13 +27,21 @@ void MainWindow::startUI()
 
 void MainWindow::startSerialComm()
 {
-    arduino1 = new SerialManager("COM4", 9600, this);
+    arduino1 = new SerialManager("COM3", 115200, this);
+    canMessage = new CanParser(this);
+    MessageDecoded =  new CanDecoder(this);
+
 }
 
+//TODO: One only module with all the QT CONNECTIONS?
 void MainWindow::startQtConnections()
 {
     connect(arduino1, &SerialManager::messageReceived, statusWidget, &SerialStatusWidget::setLabelSerialText);
+    connect(arduino1, &SerialManager::messageReceived, canMessage, &CanParser::processSerialMessage);
     connect(arduino1, &SerialManager::arduinoStateConnectionChanged, statusWidget, &SerialStatusWidget::setStatusIndicator);
+
+    connect(canMessage, &CanParser::canSignalConstructed, MessageDecoded, &CanDecoder::decodeVehicleStatus);
+    connect(MessageDecoded, &CanDecoder::canPayloadAbstracted, statusWidget, &SerialStatusWidget::setEngineStatusCanData);
 }
 
 MainWindow::~MainWindow()

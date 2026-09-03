@@ -13,6 +13,7 @@ public:
 
     SerialManager(const QString & _usbPortName, const int baudRate, QObject *parent = nullptr);
     ~SerialManager();
+
     QByteArray rxMessage();
     void setUsbPortName(const QString &);
 
@@ -21,7 +22,7 @@ private:
     QByteArray bufferText;
 
     QTimer *serialDeviceReseaarch;
-
+    QTimer *serialHeartbeat;
 
     QString *usbPortName;
     bool state;
@@ -30,9 +31,10 @@ private:
 public slots:
     void incomingMessage();
     void startSerialConnection();
+    void serialHbMissing();
 
 signals:
-    void messageReceived(QString);
+    void messageReceived(QByteArray);
     void arduinoStateConnectionChanged(bool);
 };
 
