@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QFormLayout>
+#include <QVector>
 
 #include "canDataTypes.h"
 
@@ -18,6 +19,8 @@ public:
 public slots:
     void setLabelSerialText(const QByteArray &text);
     void setStatusIndicator(bool);
+
+    //To show vehicle speed
     void setEngineStatusCanData(const EngineData &payload);
 
 private:

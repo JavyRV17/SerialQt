@@ -8,6 +8,16 @@ typedef struct  {
 } CanFrame;
 
 typedef struct {
+    int startbit;
+    int lenght;
+    int byteOrder;
+    int factor;
+    int scale;
+    const char *unit;
+    int *dataPtr;
+} CanSignalProperties;
+
+typedef struct {
     int vehicleSpeed;
     int engineRPM;
     int egineStatus;

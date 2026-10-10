@@ -10,6 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    candatawidget.cpp \
     candecoder.cpp \
     canparser.cpp \
     main.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     canDataTypes.h \
+    candatawidget.h \
     candecoder.h \
     canparser.h \
     mainwindow.h \

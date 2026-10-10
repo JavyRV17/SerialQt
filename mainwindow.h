@@ -31,6 +31,10 @@ private:
     //Widgets
     SerialStatusWidget *statusWidget;
 
+    //Can Layout
+    //TODO: to create a new widget for this
+    QVBoxLayout *vehicleStatusCanLayout;
+
     void startUI();
     void startSerialComm();
     void startQtConnections();
