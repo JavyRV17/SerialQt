@@ -1,6 +1,6 @@
 #include "candatawidget.h"
 
-candatawidget::candatawidget(QWidget *parent) : QWidget(parent)
+Candatawidget::Candatawidget(QWidget *parent) : QWidget(parent)
 {
     QString temp[] = {
         "VehicleSpeed: ",

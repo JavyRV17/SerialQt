@@ -5,11 +5,11 @@
 #include <QWidget>
 #include <QLabel>
 
-class candatawidget : public QWidget
+class Candatawidget : public QWidget
 {
     Q_OBJECT
 public:
-    candatawidget(QWidget *parent = nullptr);
+    Candatawidget(QWidget *parent = nullptr);
 };
 
 #endif // CANDATAWIDGET_H

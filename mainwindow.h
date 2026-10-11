@@ -6,6 +6,8 @@
 #include <QMainWindow>
 
 #include "serialstatuswidget.h"
+#include "candatawidget.h"
+
 #include "serialmanager.h"
 #include "canparser.h"
 #include "candecoder.h"
