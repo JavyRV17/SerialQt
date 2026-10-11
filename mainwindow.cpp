@@ -27,7 +27,13 @@ void MainWindow::startUI()
 
 void MainWindow::startSerialComm()
 {
+
+#ifndef Q_OS_LINUX
     arduino1 = new SerialManager("COM3", 115200, this);
+#else 
+    arduino1 = new SerialManager("ttyUSB0", 115200, this);
+#endif
+
     canMessage = new CanParser(this);
     MessageDecoded =  new CanDecoder(this);
 

@@ -15,7 +15,6 @@ candatawidget::candatawidget(QWidget *parent) : QWidget(parent)
     for (int i = 0; i < 7; ++i)
     {
         QLabel* label = new QLabel(this);
-        mainlayout->addWidget(label);
         label->setText(temp[i]);
     }
 }

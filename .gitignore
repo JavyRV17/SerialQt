@@ -2,6 +2,8 @@
 
 *.pro.user
 *.pro.user.*
+moc_*
+qmake.stash
 
 # Build directories
 
@@ -29,3 +31,9 @@ release/
 
 Thumbs.db
 .DS_Store
+
+
+# Archivos temporales de Vim
+*.swp
+*.swo
+.*.sw?
