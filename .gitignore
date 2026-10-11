@@ -3,7 +3,8 @@
 *.pro.user
 *.pro.user.*
 moc_*
-qmake.stash
+.qmake.stash
+Makefile
 
 # Build directories
 
@@ -37,3 +38,7 @@ Thumbs.db
 *.swp
 *.swo
 .*.sw?
+
+
+#Specific exe file of LINUX 
+SerialQt
